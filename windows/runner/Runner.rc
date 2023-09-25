@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "daawa" "\0"
+            VALUE "FileDescription", "El Mensaje" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "daawa" "\0"
+            VALUE "InternalName", "El Mensaje" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "daawa.exe" "\0"
-            VALUE "ProductName", "daawa" "\0"
+            VALUE "ProductName", "El Mensaje" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

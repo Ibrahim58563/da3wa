@@ -1,8 +1,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/> -->
+<uses-permission android:name="android.permission.INTERNET"/>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <data android:mimeType="*/*" />
+        </intent>
+    </queries>
     <application
-        android:label="daawa"
+        android:label="El Mensaje"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <activity android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
