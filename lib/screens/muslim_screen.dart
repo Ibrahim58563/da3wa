@@ -14,6 +14,7 @@ import 'package:daawa/muslim_screens/new_life_screen.dart';
 import 'package:daawa/muslim_screens/new_life_screen_2.dart';
 import 'package:daawa/muslim_screens/new_muslim_screen.dart';
 import 'package:daawa/muslim_screens/pilgrimage_screen.dart';
+import 'package:daawa/muslim_screens/practical_practice_screen.dart';
 import 'package:daawa/muslim_screens/pray_1_screen.dart';
 import 'package:daawa/muslim_screens/pray_2_screen.dart';
 import 'package:daawa/muslim_screens/preminals_screen.dart';
@@ -35,6 +36,7 @@ List<String> muslimLessonName = [
   'TU Credo',
   'TU Pureza',
   'TU SALAT 1',
+  "Enseñanza Practica",
   'TU ALIMENTO Y TU BEBIDA',
   'TU VESTIMENTA',
   'La familia',
@@ -60,6 +62,7 @@ List<String> muslimLessonImages = [
   'assets/images/shahadah.jpeg',
   'assets/images/3akeedah.webp',
   'assets/images/tahara.jpeg',
+  'assets/images/TU SALAT.jpeg',
   'assets/images/TU SALAT.jpeg',
   'assets/images/TU ALIMENTO Y TU BEBIDA.webp',
   'assets/images/TU VESTIMENTA.jpeg',
@@ -87,6 +90,7 @@ List<Widget> screens = [
   const AkeedahScreen(),
   const TaharahScreen(),
   const Pray1Screen(),
+  const PracticalPracticeScreen(),
   const FoodAndDrinkScreen(),
   const DressCodeScreen(),
   const FamilyScreen(),
@@ -132,6 +136,9 @@ class _MuslimScreenState extends State<MuslimScreen> {
         lessonsLength?.add((lesson['lessons'].length));
         finishLoop++;
       });
+      if (lesson['title'] == "La oración Nivel 1") {
+        lessonsLength?.add(3);
+      }
       if (lesson['title'] == "El Corán es la palabra de Dios") {
         break;
       }

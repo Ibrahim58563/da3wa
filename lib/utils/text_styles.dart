@@ -16,8 +16,17 @@ TextStyle text24Bold = const TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.black,
 );
+TextStyle text18Bold = const TextStyle(
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
 TextStyle text24 = const TextStyle(
   fontSize: 24,
+  color: Colors.black,
+);
+TextStyle text18 = const TextStyle(
+  fontSize: 18,
   color: Colors.black,
 );
 
@@ -48,7 +57,7 @@ TextStyle text18White = const TextStyle(
   fontSize: 18,
   color: Colors.white,
 );
-TextStyle suraArabicFont =  GoogleFonts.amiri(
+TextStyle suraArabicFont = GoogleFonts.amiri(
   fontSize: 18,
   color: Colors.white,
 );
