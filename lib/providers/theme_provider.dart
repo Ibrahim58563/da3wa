@@ -15,3 +15,4 @@ class AppThemeState extends ChangeNotifier {
     notifyListeners();
   }
 }
+

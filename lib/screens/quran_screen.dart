@@ -44,9 +44,8 @@ class _QuranScreenState extends State<QuranScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(
+          title: const Text(
         'Índice de suras',
-        style: whiteSubTitle,
       )),
       body: Column(
         children: [
@@ -68,14 +67,13 @@ class _QuranScreenState extends State<QuranScreen> {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     color: index % 2 == 0
-                        ? Colors.white.withOpacity(0.15)
+                        ? Colors.black.withOpacity(0.1)
                         : Colors.transparent,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         _soraName[index],
                         textAlign: TextAlign.center,
-                        style: text24BoldWhite,
                       ),
                     ),
                   ),

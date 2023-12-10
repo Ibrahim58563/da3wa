@@ -20,7 +20,6 @@ class SoraContentScreen extends StatelessWidget {
       appBar: AppBar(
         title: SelectableText(
           suraName,
-          style: whiteSubTitle,
         ),
       ),
       body: Center(
@@ -33,7 +32,7 @@ class SoraContentScreen extends StatelessWidget {
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width,
-                      color: Colors.white.withOpacity(0.15),
+                      color: Colors.black.withOpacity(0.1),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: SelectableText(
@@ -49,7 +48,6 @@ class SoraContentScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: SelectableText(
                           soraContentEspanol[index]['muhammad_isa_garcia'],
-                          style: text18White,
                           textAlign: TextAlign.center,
                         ),
                       ),

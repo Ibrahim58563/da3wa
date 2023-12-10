@@ -18,7 +18,7 @@ TextStyle text24Bold = const TextStyle(
 );
 TextStyle text24 = const TextStyle(
   fontSize: 24,
-  color: Colors.black,
+  // color: Colors.black,
 );
 
 TextStyle whiteSubTitle = const TextStyle(
@@ -55,5 +55,4 @@ TextStyle text18White = const TextStyle(
 );
 TextStyle suraArabicFont = GoogleFonts.amiri(
   fontSize: 18,
-  color: Colors.white,
 );

@@ -1,21 +1,24 @@
 import 'dart:convert';
-
+import 'package:daawa/widgets/non_muslim_category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../utils/text_styles.dart';
 import '../widgets/default_lesson_widget.dart';
-import '../widgets/non_muslim_category_item.dart';
 
-class QuranIsTheWordOfGod extends StatefulWidget {
+class NonMuslimLessonWidget extends StatefulWidget {
+  final int lessonIndex;
   final String title;
-  const QuranIsTheWordOfGod({super.key, required this.title});
+  const NonMuslimLessonWidget({
+    super.key,
+    required this.title,
+    required this.lessonIndex,
+  });
 
   @override
-  State<QuranIsTheWordOfGod> createState() => _FastScreenState();
+  State<NonMuslimLessonWidget> createState() => _FastScreenState();
 }
 
-class _FastScreenState extends State<QuranIsTheWordOfGod> {
+class _FastScreenState extends State<NonMuslimLessonWidget> {
   final List<dynamic> _items = [];
   final List<String> _definitions = [];
 
@@ -33,10 +36,11 @@ class _FastScreenState extends State<QuranIsTheWordOfGod> {
     // print(data);
 
     setState(() {
-      for (var topic in data[6]['topics']) {
+      for (var topic in data[widget.lessonIndex]['topics']) {
         _definitions.add(topic['header']);
         _items.add(topic['nestedTopics']);
         print(topic['header']);
+        print(topic['nestedTopics']);
       }
     });
   }
@@ -48,7 +52,6 @@ class _FastScreenState extends State<QuranIsTheWordOfGod> {
         appBar: AppBar(
           title: Text(
             widget.title,
-            style: whiteSubTitle,
           ),
         ),
         body: Padding(

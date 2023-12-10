@@ -1,26 +1,8 @@
-import 'dart:convert';
 import 'dart:developer';
-
-import 'package:daawa/non_muslim_screens/christianity.dart';
-import 'package:daawa/non_muslim_screens/maze.dart';
-import 'package:daawa/non_muslim_screens/proof_for_islam.dart';
-import 'package:daawa/non_muslim_screens/questions.dart';
-import 'package:daawa/non_muslim_screens/reply.dart';
-import 'package:daawa/non_muslim_screens/what_is_islam.dart';
+import 'package:daawa/screens/non_muslim_lesson_widget.dart';
 import 'package:daawa/widgets/category_app_bar.dart';
 import 'package:daawa/widgets/category_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-List<Widget> screens = [
-  WhatIsIslamScreen(title: nonMuslimLessonName[0]),
-  ChristianityScreen(title: nonMuslimLessonName[1]),
-  ProofScreen(title: nonMuslimLessonName[2]),
-  MazeScreen(title: nonMuslimLessonName[3]),
-  QuestionsScreen(title: nonMuslimLessonName[4]),
-  ReplyScreen(title: nonMuslimLessonName[5]),
-  // QuranIsTheWordOfGod(title: nonMuslimLessonName[6]),
-];
 
 class NonMuslimScreen extends StatefulWidget {
   const NonMuslimScreen({super.key});
@@ -39,47 +21,18 @@ List nonMuslimLessonName = [
 ];
 
 class _NonMuslimScreenState extends State<NonMuslimScreen> {
-  bool jsonDataLoaded = false;
-
-  // Initialize a list to store non-Muslim lesson names.
-  List<String> nonMuslimLessonName = [];
-
-  // Fetch content from the JSON file
-  Future<void> readJson() async {
-    if (!jsonDataLoaded) {
-      final String response =
-          await rootBundle.loadString('assets/lessonsJson/Newdawafinal.json');
-      final data = await json.decode(response);
-      // print(data);
-
-      setState(() {
-        for (var lesson in data) {
-          nonMuslimLessonName.add(lesson['sectionName']);
-          print("added lesson names");
-        }
-        // Set the flag to true to indicate that JSON data has been loaded.
-        jsonDataLoaded = true;
-      });
-    }
-  }
-
-  @override
-  void initState() {
-    // Call readJson in initState to load JSON data when the screen is first opened.
-    readJson();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
+        appBar: AppBar(
+            title: const Text(
+          'Guía a la Verdad',
+        )),
         body: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              categoryAppBar(context),
               Expanded(
                   child: ListView.separated(
                 itemCount: nonMuslimLessonName.length,
@@ -93,9 +46,14 @@ class _NonMuslimScreenState extends State<NonMuslimScreen> {
                       text: nonMuslimLessonName[index],
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => screens[index]));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NonMuslimLessonWidget(
+                              title: nonMuslimLessonName[index],
+                              lessonIndex: index,
+                            ),
+                          ),
+                        );
                       });
                 },
               ))

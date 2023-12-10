@@ -23,9 +23,9 @@ class _InfoScreenState extends State<InfoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(
+          title: const Text(
         'Idea del programa',
-        style: whiteSubTitle,
+        // style: whiteSubTitle,
       )),
       body: SingleChildScrollView(
         child: Column(
@@ -33,20 +33,20 @@ class _InfoScreenState extends State<InfoScreen> {
             const SizedBox(
               height: 50,
             ),
-            Center(
+            const Center(
               child: Text(
                 "Su objetivo es enseñar al nuevo musulmán de manera, organizada en un plan de estudios que contenga la mayor parte de la información que el nuevo musulmán necesita. También  Contiene el Corán. Además de una sección para no musulmanes que buscan la verdad para presentar el Islam",
-                style: text28White,
+                // style: text28White,
                 textAlign: TextAlign.center,
               ),
             ),
             const SizedBox(
               height: 60,
             ),
-            Center(
+            const Center(
               child: Text(
                 "Para comunicar:",
-                style: text28White,
+                // style: text28White,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -72,7 +72,7 @@ class _InfoScreenState extends State<InfoScreen> {
                   },
                   child: Image.asset(
                     "assets/images/mail.png",
-                    color: Colors.white,
+                    // color: Colors.white,
                     height: 70,
                   ),
                 ),
@@ -91,7 +91,7 @@ class _InfoScreenState extends State<InfoScreen> {
                   },
                   child: Image.asset(
                     "assets/images/whats_app.png",
-                    color: Colors.white,
+                    // color: Colors.white,
                     height: 60,
                   ),
                 ),
@@ -110,7 +110,7 @@ class _InfoScreenState extends State<InfoScreen> {
                   },
                   child: Image.asset(
                     "assets/images/telegram.png",
-                    color: Colors.white,
+                    // color: Colors.white,
                     height: 60,
                   ),
                 ),

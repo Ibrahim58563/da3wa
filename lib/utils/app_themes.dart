@@ -5,12 +5,9 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     appBarTheme: AppBarTheme(
-      backgroundColor: lightPrimaryColor,
+      backgroundColor: darkPrimaryColor,
       iconTheme: const IconThemeData(color: Colors.black),
     ),
-    // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
-    //   background: Colors.black,
-    // ),
     colorScheme: ColorScheme.light(
       primary: lightPrimaryColor,
       secondary: lightSecondaryColor,
@@ -23,9 +20,6 @@ class AppTheme {
       backgroundColor: Colors.transparent,
       iconTheme: IconThemeData(color: Colors.white),
     ),
-    // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
-    //   background: Colors.black,
-    // ),
     primaryColor: darkPrimaryColor,
     colorScheme: ColorScheme.dark(
       primary: darkPrimaryColor,
