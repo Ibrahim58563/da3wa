@@ -42,47 +42,50 @@ class _QuranScreenState extends State<QuranScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: const Text(
-        'Índice de suras',
-      )),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SoraContentScreen(
-                                  suraName: _soraName[index],
-                                  soraContentEspanol:
-                                      _soraContentSpanish[index],
-                                  soraContentArabic: _soraContentArabic[index],
-                                )));
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    color: index % 2 == 0
-                        ? Colors.black.withOpacity(0.1)
-                        : Colors.transparent,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        _soraName[index],
-                        textAlign: TextAlign.center,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+            title: const Text(
+          'Índice de suras',
+        )),
+        body: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SoraContentScreen(
+                                    suraName: _soraName[index],
+                                    soraContentEspanol:
+                                        _soraContentSpanish[index],
+                                    soraContentArabic:
+                                        _soraContentArabic[index],
+                                  )));
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      color: index % 2 == 0
+                          ? Colors.black.withOpacity(0.1)
+                          : Colors.white.withOpacity(0.1),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          _soraName[index],
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
-                  ),
-                );
-              },
-              itemCount: _soraName.length,
+                  );
+                },
+                itemCount: _soraName.length,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

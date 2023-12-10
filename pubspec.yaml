@@ -33,6 +33,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_hooks: ^0.20.3
+  flutter_native_splash: ^2.3.8
   google_fonts: ^6.1.0
   hooks_riverpod: ^2.4.9
   readmore: ^2.2.0

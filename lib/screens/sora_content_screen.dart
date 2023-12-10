@@ -32,7 +32,9 @@ class SoraContentScreen extends StatelessWidget {
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width,
-                      color: Colors.black.withOpacity(0.1),
+                      color: index % 1 == 1
+                          ? Colors.black.withOpacity(0.1)
+                          : Colors.grey.withOpacity(0.2),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: SelectableText(

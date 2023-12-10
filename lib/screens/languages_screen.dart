@@ -10,15 +10,11 @@ class LanguagesScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Idiomas"),
       ),
-      body: const Column(
-        children: [
-          Text("English"),
-          Text("Spanish"),
-          Text("French"),
-          Text("Arabic"),
-          Text("Italian"),
-          Text("German"),
-        ],
+      body: const Center(
+        child: Text(
+          "Próximamente...",
+          style: TextStyle(fontSize: 20),
+        ),
       ),
     );
   }

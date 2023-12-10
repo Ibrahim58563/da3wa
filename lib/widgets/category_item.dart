@@ -45,7 +45,8 @@ class CategoryItem extends StatelessWidget {
               image != null
                   ? Image.asset(
                       image!,
-                      width: 80,
+                      width: 60,
+                      height: 50,
                     )
                   : const SizedBox(),
               image != null

@@ -11,55 +11,57 @@ class SettingsScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appThemeState = ref.watch(appThemeStateNotifier);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Configuración de"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LanguagesScreen()));
-              },
-              child: const Padding(
-                padding: EdgeInsets.all(8.0),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Configuración de"),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LanguagesScreen()));
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Idioma"),
+                      Icon(Icons.arrow_forward_ios_rounded),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Language"),
-                    Icon(Icons.arrow_forward_ios_rounded),
+                    const Text("Modo Oscuro"),
+                    Switch(
+                      value: appThemeState.isDarkModeEnabled,
+                      onChanged: (enabled) {
+                        if (enabled) {
+                          appThemeState.setDarkTheme();
+                        } else {
+                          appThemeState.setLightTheme();
+                        }
+                      },
+                    ),
                   ],
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text("Dark Mode"),
-                  Switch(
-                    value: appThemeState.isDarkModeEnabled,
-                    onChanged: (enabled) {
-                      if (enabled) {
-                        appThemeState.setDarkTheme();
-                      } else {
-                        appThemeState.setLightTheme();
-                      }
-                    },
-                  ),
-                ],
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
