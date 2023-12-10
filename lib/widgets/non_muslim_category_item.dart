@@ -24,7 +24,7 @@ class NonMuslimCategoryItem extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.11,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16), color: primaryColor),
+            borderRadius: BorderRadius.circular(16), color: darkPrimaryColor),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
@@ -36,7 +36,7 @@ class NonMuslimCategoryItem extends StatelessWidget {
                 backgroundColor: Colors.black,
                 child: Text(
                   (index).toString(),
-                  style: text18BoldWhite.copyWith(color: primaryColor),
+                  style: text18BoldWhite.copyWith(color: darkPrimaryColor),
                 ),
               ),
               const SizedBox(
@@ -59,7 +59,7 @@ class NonMuslimCategoryItem extends StatelessWidget {
                     : null,
                 child: Text(
                   text,
-                  style: text18White.copyWith(color: secondaryColor),
+                  style: text18White.copyWith(color: darkSecondaryColor),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -69,7 +69,7 @@ class NonMuslimCategoryItem extends StatelessWidget {
                   backgroundColor: Colors.black,
                   child: Icon(
                     Icons.play_arrow_rounded,
-                    color: primaryColor,
+                    color: darkPrimaryColor,
                   )),
               const SizedBox(
                 width: 10,

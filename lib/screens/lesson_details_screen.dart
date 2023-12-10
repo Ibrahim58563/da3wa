@@ -1,6 +1,7 @@
 import 'package:daawa/utils/app_colors.dart';
 import 'package:daawa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LessonDetailsScreen extends StatelessWidget {
@@ -18,28 +19,34 @@ class LessonDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text(
+            title,
+            textAlign: TextAlign.center,
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: InkWell(
+                  onTap: () {
+                    Clipboard.setData(ClipboardData(text: body)).then((_) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('Copied to your clipboard !')));
+                    });
+                  },
+                  child: const Icon(
+                    Icons.copy_rounded,
+                    size: 28,
+                  )),
+            ),
+          ],
+        ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: titleStyle,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
                 video != ""
                     ? Center(
                         child: InkWell(
@@ -54,7 +61,7 @@ class LessonDetailsScreen extends StatelessWidget {
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
-                              color: primaryColor,
+                              color: darkPrimaryColor,
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -84,8 +91,8 @@ class LessonDetailsScreen extends StatelessWidget {
                 ),
                 SelectableText(
                   body,
-                  style: text18White,
-                  // textAlign: TextAlign.justify,
+                  // style: text18White,
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),

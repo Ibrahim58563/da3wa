@@ -44,11 +44,16 @@ TextStyle text18BoldWhite = const TextStyle(
   fontWeight: FontWeight.bold,
   color: Colors.white,
 );
+TextStyle text16BoldWhite = const TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
 TextStyle text18White = const TextStyle(
   fontSize: 18,
   color: Colors.white,
 );
-TextStyle suraArabicFont =  GoogleFonts.amiri(
+TextStyle suraArabicFont = GoogleFonts.amiri(
   fontSize: 18,
   color: Colors.white,
 );

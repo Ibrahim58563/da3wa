@@ -82,7 +82,7 @@ class KidsLessonBodyWidget extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
-                          color: secondaryColor),
+                          color: darkSecondaryColor),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
@@ -109,7 +109,7 @@ class KidsLessonBodyWidget extends StatelessWidget {
                               width: 10,
                             ),
                             CircleAvatar(
-                              backgroundColor: primaryColor,
+                              backgroundColor: darkPrimaryColor,
                               child: const Icon(Icons.play_arrow_rounded),
                             ),
                             const SizedBox(

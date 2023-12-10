@@ -48,9 +48,8 @@ class _KidsScreenState extends State<KidsScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             "Niños",
-            style: whiteSubTitle,
           ),
         ),
         body: Padding(

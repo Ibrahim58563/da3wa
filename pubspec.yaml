@@ -31,9 +31,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.20.3
   google_fonts: ^6.1.0
+  hooks_riverpod: ^2.4.9
   readmore: ^2.2.0
   rename: ^2.1.1
+  riverpod: ^2.4.9
   url_launcher: ^6.1.12
 
 dev_dependencies:

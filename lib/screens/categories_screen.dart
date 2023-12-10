@@ -1,26 +1,30 @@
+import 'package:daawa/providers/theme_provider.dart';
 import 'package:daawa/screens/info_screen.dart';
 import 'package:daawa/screens/muslim_screen.dart';
 import 'package:daawa/screens/non_muslim_screen.dart';
 import 'package:daawa/screens/quran_screen.dart';
+import 'package:daawa/screens/settings_screen.dart';
+import 'package:daawa/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../utils/text_styles.dart';
 import '../widgets/category_item.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class CategoriesScreen extends HookConsumerWidget {
   const CategoriesScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appThemeState = ref.watch(appThemeStateNotifier);
+
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(title: const Text("Categorías")),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Text(
-                "Categorías",
-                style: titleStyle,
-              ),
               const SizedBox(
                 height: 20,
               ),
@@ -75,6 +79,20 @@ class CategoriesScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const InfoScreen()));
+                },
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CategoryItem(
+                index: 5,
+                text: 'Configuración de',
+                image: 'assets/images/settings.png',
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SettingsScreen()));
                 },
               ),
             ],

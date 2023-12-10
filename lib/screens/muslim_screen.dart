@@ -1,33 +1,6 @@
 import 'dart:convert';
-
-import 'package:daawa/muslim_screens/3akeedah_screen.dart';
-import 'package:daawa/muslim_screens/dress_code_screen.dart';
-import 'package:daawa/muslim_screens/ethics_1_screen.dart';
-import 'package:daawa/muslim_screens/ethics_2_screen.dart';
-import 'package:daawa/muslim_screens/family_screen.dart';
-import 'package:daawa/muslim_screens/fast_screen.dart';
-import 'package:daawa/muslim_screens/financial_transactions_screen.dart';
-import 'package:daawa/muslim_screens/food_and_drink_screen.dart';
-import 'package:daawa/muslim_screens/kids_screen.dart';
-import 'package:daawa/muslim_screens/learn_quran_screen.dart';
-import 'package:daawa/muslim_screens/new_life_screen.dart';
-import 'package:daawa/muslim_screens/new_life_screen_2.dart';
-import 'package:daawa/muslim_screens/new_muslim_screen.dart';
-import 'package:daawa/muslim_screens/pilgrimage_screen.dart';
-import 'package:daawa/muslim_screens/pray_1_screen.dart';
-import 'package:daawa/muslim_screens/pray_2_screen.dart';
-import 'package:daawa/muslim_screens/preminals_screen.dart';
-import 'package:daawa/muslim_screens/quran_is_a_miracle_of_god_screen.dart';
-import 'package:daawa/muslim_screens/seerah_screen.dart';
-import 'package:daawa/muslim_screens/shahadah_screen.dart';
-import 'package:daawa/muslim_screens/shi3a_screen.dart';
-import 'package:daawa/muslim_screens/taharah_screen.dart';
-import 'package:daawa/muslim_screens/words_and_definitions_screen.dart';
-import 'package:daawa/muslim_screens/zakat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import '../widgets/category_app_bar.dart';
 import '../widgets/sub_category_list_item.dart';
 
 List<String> muslimLessonName = [
@@ -82,31 +55,31 @@ List<String> muslimLessonImages = [
   'assets/images/miracle.jpg',
   'assets/images/kids.jpeg',
 ];
-List<Widget> screens = [
-  const ShahadahScreen(),
-  const AkeedahScreen(),
-  const TaharahScreen(),
-  const Pray1Screen(),
-  const FoodAndDrinkScreen(),
-  const DressCodeScreen(),
-  const FamilyScreen(),
-  const FinancialTransactionsScreen(),
-  const Ethics1Screen(),
-  const NewLifeScreen(),
-  const FastScreen(),
-  const SeerahScreen(),
-  const Ethics2Screen(),
-  const ZakatScreen(),
-  const NewLifeScreen2(),
-  const PilgrimageScreen(),
-  const Pray2Screen(),
-  const WordsAndDefinitionsScreen(),
-  const Shi3aScreen(),
-  const NewMuslimScreen(),
-  const PreliminariesScreen(),
-  const LearnQuranScreen(),
-  const QuranIsAMiracleOfGod(),
-  const KidsScreen(),
+List<int> jsonIndexOfFile = [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
 ];
 
 class MuslimScreen extends StatefulWidget {
@@ -155,12 +128,13 @@ class _MuslimScreenState extends State<MuslimScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
+        appBar: AppBar(
+          title: const Text("Aprender el Islam"),
+        ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              categoryAppBar(context),
               Expanded(
                 child: isDataLoaded // Check if data is loaded before building
                     ? ListView.separated(
@@ -170,10 +144,10 @@ class _MuslimScreenState extends State<MuslimScreen> {
                         ),
                         itemBuilder: (context, index) {
                           return SubCategoryListItem(
+                            lessonIndex: jsonIndexOfFile[index],
                             imagePath: muslimLessonImages[index],
                             lessonsNumber: lessonsLength![index],
                             name: muslimLessonName[index],
-                            screenName: screens[index],
                           );
                         },
                       )

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:daawa/utils/text_styles.dart';
 import 'package:daawa/widgets/non_muslim_category_item.dart';
@@ -8,7 +9,8 @@ import 'package:flutter/services.dart';
 import '../widgets/default_lesson_widget.dart';
 
 class LearnQuranScreen extends StatefulWidget {
-  const LearnQuranScreen({super.key});
+  final int lessonIndex;
+  const LearnQuranScreen({super.key, required this.lessonIndex});
 
   @override
   State<LearnQuranScreen> createState() => _LearnQuranScreenState();
@@ -29,13 +31,12 @@ class _LearnQuranScreenState extends State<LearnQuranScreen> {
     final String response =
         await rootBundle.loadString('assets/lessonsJson/muslim_final.json');
     final data = await json.decode(response);
-    // print(data);
 
     setState(() {
       for (var topic in data['Muslim'][21]['lessons']) {
         _definitions.add(topic['header']);
         _items.add(topic['nestedTopics']);
-        print(topic['header']);
+        log(_items.toString());
       }
     });
   }
@@ -45,9 +46,8 @@ class _LearnQuranScreenState extends State<LearnQuranScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Aprende el Corán',
-            style: whiteSubTitle,
           ),
         ),
         body: Padding(

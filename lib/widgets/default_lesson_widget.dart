@@ -1,60 +1,63 @@
+import 'dart:convert';
+
+import 'package:daawa/screens/muslim_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:readmore/readmore.dart';
 
 import '../screens/lesson_details_screen.dart';
 import '../utils/app_colors.dart';
 import '../utils/text_styles.dart';
 
-class DefaultLessonBodyWidget extends StatelessWidget {
-  final String title;
+class DefaultLessonBodyWidget extends StatefulWidget {
+  final int? indexOfJson;
+  final String? title;
   final String? description;
   const DefaultLessonBodyWidget({
     super.key,
     required List items,
-    required this.title,
     this.description,
+    required this.title,
+    this.indexOfJson,
   }) : _items = items;
 
   final List _items;
 
   @override
+  State<DefaultLessonBodyWidget> createState() =>
+      _DefaultLessonBodyWidgetState();
+}
+
+class _DefaultLessonBodyWidgetState extends State<DefaultLessonBodyWidget> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            muslimLessonName[widget.indexOfJson ?? 0] == "TU Credo"
+                ? widget.title!
+                : widget.title!,
+          ),
+        ),
         body: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Icon(
-                        Icons.arrow_back_ios_rounded,
-                        color: Colors.white,
-                      )),
-                  Flexible(
-                    child: Center(
-                      child: Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        style: titleStyle.copyWith(fontSize: 32),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              description != ""
+              widget.description != ""
                   ? ReadMoreText(
                       trimLines: 2,
-                      description ?? "",
+                      trimLength: 100,
+                      widget.description ?? "",
                       style: text18White,
+                      trimCollapsedText: " Leer más",
+                      trimExpandedText: " Leer menos",
                       // textAlign: TextAlign.justify,
                     )
                   : const SizedBox(),
@@ -63,7 +66,7 @@ class DefaultLessonBodyWidget extends StatelessWidget {
               ),
               Expanded(
                   child: ListView.separated(
-                itemCount: _items.length,
+                itemCount: widget._items.length,
                 separatorBuilder: (context, index) {
                   return const SizedBox(
                     height: 10,
@@ -75,14 +78,14 @@ class DefaultLessonBodyWidget extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => LessonDetailsScreen(
-                                  title: _items[index]['title'],
-                                  video: _items[index]['video'] ?? "",
-                                  body: _items[index]['body'],
+                                  title: widget._items[index]['title'],
+                                  video: widget._items[index]['video'] ?? "",
+                                  body: widget._items[index]['body'],
                                 ))),
                     child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
-                          color: secondaryColor),
+                          color: darkSecondaryColor),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
@@ -99,7 +102,7 @@ class DefaultLessonBodyWidget extends StatelessWidget {
                             ),
                             Expanded(
                               child: Text(
-                                _items[index]['title'],
+                                widget._items[index]['title'] ?? "error",
                                 style: text18White,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
@@ -109,7 +112,7 @@ class DefaultLessonBodyWidget extends StatelessWidget {
                               width: 10,
                             ),
                             CircleAvatar(
-                              backgroundColor: primaryColor,
+                              backgroundColor: darkPrimaryColor,
                               child: const Icon(Icons.play_arrow_rounded),
                             ),
                             const SizedBox(

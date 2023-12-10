@@ -5,7 +5,6 @@ import 'package:daawa/non_muslim_screens/christianity.dart';
 import 'package:daawa/non_muslim_screens/maze.dart';
 import 'package:daawa/non_muslim_screens/proof_for_islam.dart';
 import 'package:daawa/non_muslim_screens/questions.dart';
-import 'package:daawa/non_muslim_screens/quran_is_the_word_of_god.dart';
 import 'package:daawa/non_muslim_screens/reply.dart';
 import 'package:daawa/non_muslim_screens/what_is_islam.dart';
 import 'package:daawa/widgets/category_app_bar.dart';

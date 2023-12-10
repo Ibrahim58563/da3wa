@@ -8,7 +8,8 @@ import 'package:flutter/services.dart';
 import '../widgets/default_lesson_widget.dart';
 
 class NewMuslimScreen extends StatefulWidget {
-  const NewMuslimScreen({super.key});
+  final int lessonIndex;
+  const NewMuslimScreen({super.key, required this.lessonIndex});
 
   @override
   State<NewMuslimScreen> createState() => _NewMuslimScreenState();
@@ -45,9 +46,8 @@ class _NewMuslimScreenState extends State<NewMuslimScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Curso para el nuevo musulmán',
-            style: whiteSubTitle,
           ),
         ),
         body: Padding(
